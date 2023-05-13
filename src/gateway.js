@@ -1,3 +1,8 @@
+function handleErrorWithDOMFields(error, DOMField){
+    let field = document.getElementById(DOMField)
+    field.innerHTML = "Error: " + error.json();
+}
+
 function messageHandler(data){
     let message = document.getElementById("formMessage");
     console.log(data);
@@ -17,7 +22,7 @@ async function getRandomQuote(){
 async function fetchIp(){
     await fetch("https://api.ipify.org", {
         method: 'GET'
-    })
+    }) 
     .then((data) => data.text())
     .then((body) => document.getElementById("ipAdress").innerHTML = body)
 }
@@ -28,12 +33,12 @@ async function getRandomNumberTestResult(){
     console.log(amountOfIterations);
     
     let url = "http://localhost:8080/api/v1/fun-stuff/random-numbers-test-result?amountOfIterations=" + amountOfIterations;
-    console.log(url);
     await fetch(url, {
         method: 'GET'
     })
     .then((data) => data.json())
     .then((body) => {console.log(body); handleRandomNumberTestResult(body)})
+    .catch((error) => handleErrorWithDOMFields(error.json(), "testResult"))
 }
 
 function handleRandomNumberTestResult(body){

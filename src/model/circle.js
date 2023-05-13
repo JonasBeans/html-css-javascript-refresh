@@ -1,7 +1,16 @@
 class Circle{
-    text = "";
-    constructor(text){
-        this.text = text;
+    id = "";
+    x = 50;
+    y = 50; 
+
+    constructor(id, x, y){
+        this.id = id;
+        this.x = x; 
+        this.y = y;
+    }
+
+    draw(canvas){
+        throw new Error("Not yet implemented");
     }
 
     print(){
@@ -9,9 +18,6 @@ class Circle{
     }
 
     toString(){
-        return "Circle text: " + this.text;
+        return " id: " + this.id;
     }
 }
-
-let circle = new Circle("Hello World");
-circle.print();
