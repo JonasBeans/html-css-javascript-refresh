@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../style/style_sheet.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <script src="../src/main.js"></script>
+</head>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="randomNumber.html"  class="active">Random number</a></li>
+        </ul>
+    </nav>
+    <h1>Random Number test space</h1>
+</header>
+
+<body>
+    <div>
+        <label for="amountOfIterations">Amount of iterations</label>
+        <input id="amountOfIterations" type="text" value="0">
+        <input type="button" onClick="getRandomNumberTestResult()" value="send">
+        <p id="testResult"></p>
+    </div>
+    <div>
+        <input type="button" onClick="fetchIp()" value="GET Ip adress">
+        <p id="ipAdress"></p>
+    </div>
+
+</body>
+
+</html>
