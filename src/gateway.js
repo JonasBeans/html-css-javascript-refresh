@@ -29,18 +29,10 @@ async function fetchIp(){
 
 async function getRandomNumberTestResult(){
     let amountOfIterations = document.getElementById("amountOfIterations").value;
-
-    console.log(amountOfIterations);
     
     let url = "http://localhost:8080/api/v1/fun-stuff/random-numbers-test-result?amountOfIterations=" + amountOfIterations;
-    await fetch(url, {
+    return await fetch(url, {
         method: 'GET'
     })
-    .then((data) => data.json())
-    .then((body) => {console.log(body); handleRandomNumberTestResult(body)})
-    .catch((error) => handleErrorWithDOMFields(error.json(), "testResult"))
-}
-
-function handleRandomNumberTestResult(body){
-    document.getElementById("testResult").innerHTML = body;
+    .then(response => response.json())
 }

@@ -1,7 +1,8 @@
 const sourceFiles = [
     "../src/gateway.js", 
     "../src/model/circle.js", 
-    "../src/main.js"
+    "../src/main.js",
+    "../src/randomNumber.js"
 ]
 
 function initScriptFiles(){

@@ -28,17 +28,17 @@ li>a{
     border-color: rgba(0, 0, 0, 0.212);
     padding: 5px;
     text-decoration-line: none;
-    background-color: bisque;
-    color: brown;
+    background-color: #C07F00;
+    color: #FFF7D4;
 }
 
 li>a:hover{
     animation-duration: 500ms;
-    padding: 10px;
-    background-color: black;
-    color: white;
+    padding: 5px;
+    background-color: #FFD95A;
+    color: #8d7300;
 }
 
 .active{
-    background-color: bisque;
+    background-color: #4C3D3D;
 }

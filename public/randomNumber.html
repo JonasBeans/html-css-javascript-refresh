@@ -20,11 +20,17 @@
 </header>
 
 <body>
+    <p>
+        This will send a request to the server which will generate a random number between 0-9.
+        It will do this the equivelant amount of times specified in the amount of iterations.<br>
+        Below results: 
+        number generated - amount of times generated
+    </p>
     <div>
-        <label for="amountOfIterations">Amount of iterations</label>
+        <label for="amountOfIterations">Amount of iterations (< 100_000_000)</label>
         <input id="amountOfIterations" type="text" value="0">
-        <input type="button" onClick="getRandomNumberTestResult()" value="send">
-        <p id="testResult"></p>
+        <input type="button" onClick="showTestResult()" value="send">
+        <ol start="0" id="testResult"></ol>
     </div>
     <div>
         <input type="button" onClick="fetchIp()" value="GET Ip adress">
