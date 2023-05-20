@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../style/style_sheet.css">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <div id="source-files">
-        <script src="../src/load-scripts.js"></script>
+        <script src="../src/load-canvas-scripts.js"></script>
     </div>
 </head>
 
@@ -20,6 +20,34 @@
     <h1>Drawable canvas</h1>
 </header>
 <body>
+    <div class="flexbox-horizontal">
+        <div class="flexbox-vertical">
+            <div>
+                <button onclick="addShape()">ADD SHAPE</button>
+                <button onclick="clearShapes()">CLEAR SHAPES</button>
+            </div>
+            <div>
+            </div>
+            <div>
+                <label for="shapeText">Text for new shape</label>
+                <br>
+                <input type="text" id="shapeText" maxlength="50">
+            </div>
+            <div>
+                <label for="shapeColor">Color of shape</label>
+                <br>
+                <select name="shapeColor" id="shapeColor">
+                    <option value="red">RED</option>
+                    <option value="green">GREEN</option>
+                    <option value="blue">BLUE</option>
+                    <option value="yellow">YELLOW</option>
+                </select>
+            </div>
+        </div>
+        <div class="inputForm">
+            <p id="shapeValidation"></p>
+        </div>
+    </div>
     <canvas id="canvas"></canvas>
 </body>
 </html>

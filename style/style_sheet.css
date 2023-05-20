@@ -2,6 +2,24 @@ body{
     margin: 0 25% 0 5%;
 }
 
+#shapeValidation{
+    color:red;
+    margin: 0;
+}
+
+
+.flexbox-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+.flexbox-horizontal{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 #canvas{
     margin: 0;
 }
