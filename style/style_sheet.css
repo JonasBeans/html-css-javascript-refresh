@@ -2,6 +2,10 @@ body{
     margin: 0 25% 0 5%;
 }
 
+#canvas{
+    margin: 0;
+}
+
 nav{
     margin-top: 20px;
 }
