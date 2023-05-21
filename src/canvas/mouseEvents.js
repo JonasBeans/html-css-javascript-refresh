@@ -6,7 +6,6 @@ function isInsideShape(cordinates, shape) {
 
     if (cordinates.x > shapeLeft && cordinates.x < shapeRight &&
         cordinates.y > shapeTop && cordinates.y < shapeBottom) {
-        console.log("inside ")
         return true;
     }
     return false;
@@ -15,7 +14,7 @@ function isInsideShape(cordinates, shape) {
 let mouseDown = function (event) {
     event.preventDefault();
 
-    startCordinates = getCordinatesInCanvas(event.clientX, event.clientY, canvas);
+    startCordinates = getCordinatesInCanvas(event.clientX, event.clientY);
 
     let index = 0;
     for (let shape of shapes) {
@@ -51,7 +50,7 @@ let mouseMove = function (event) {
     } else {
         event.preventDefault();
 
-        let moveCordinates = getCordinatesInCanvas(event.clientX, event.clientY, canvas);
+        let moveCordinates = getCordinatesInCanvas(event.clientX, event.clientY);
 
         let dx = moveCordinates.x - startCordinates.x;
         let dy = moveCordinates.y - startCordinates.y;

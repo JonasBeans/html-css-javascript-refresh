@@ -18,7 +18,36 @@ function validateNewShape(shape){
 }
 
 function clearShapes(){
-    shapes = []
+    deleteAllShapes().then(shapes = [])
     drawShapes();
 }
 
+async function saveShapes(){
+    let url = `http://${backendIP}/api/v1/shape`;
+    let payload = JSON.stringify(shapes) 
+
+    fetch(url, {
+        method: 'POST', 
+        headers:{
+           "Content-Type" : "application/json",
+        }, 
+        body: payload
+    })
+}
+
+async function getAllShapes(){
+    let url = `http://${backendIP}/api/v1/shape/all`;
+
+    return await fetch(url, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+}
+
+async function deleteAllShapes(){
+    let url = `http://${backendIP}/api/v1/shape/all`;
+
+    return await fetch(url, {
+        method: 'DELETE'
+    })
+}

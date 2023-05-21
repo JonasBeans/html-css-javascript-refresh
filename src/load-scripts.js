@@ -1,4 +1,5 @@
 const sourceFiles = [
+    "../src/constants.js",
     "../src/gateway.js", 
     "../src/model/circle.js", 
     "../src/main.js",

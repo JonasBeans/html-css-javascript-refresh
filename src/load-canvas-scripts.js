@@ -1,4 +1,5 @@
 const sourceFiles = [
+    "../src/constants.js",
     "../src/canvas/canvas.js", 
     "../src/canvas/shapeManipulation.js", 
     "../src/canvas/mouseEvents.js", 

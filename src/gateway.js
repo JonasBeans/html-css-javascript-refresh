@@ -10,7 +10,7 @@ function messageHandler(data){
 }
 
 async function getRandomQuote(){
-    await fetch("http://localhost:8080/api/v1/fun-stuff/random-sentence",
+    await fetch(`http://${backendIP}/api/v1/fun-stuff/random-sentence`,
         {
         method: 'GET', 
         mode: 'cors', 
@@ -29,8 +29,8 @@ async function fetchIp(){
 
 async function getRandomNumberTestResult(){
     let amountOfIterations = document.getElementById("amountOfIterations").value;
-    
-    let url = "http://localhost:8080/api/v1/fun-stuff/random-numbers-test-result?amountOfIterations=" + amountOfIterations;
+    let url = `http://${backendIP}/api/v1/fun-stuff/random-numbers-test-result?amountOfIterations=${amountOfIterations}`;
+
     return await fetch(url, {
         method: 'GET'
     })

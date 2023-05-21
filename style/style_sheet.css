@@ -5,8 +5,8 @@ body{
 #shapeValidation{
     color:red;
     margin: 0;
+    margin-left: 5px;
 }
-
 
 .flexbox-vertical {
     display: flex;
@@ -14,6 +14,7 @@ body{
     align-items: stretch;
     gap: 10px;
 }
+
 .flexbox-horizontal{
     display: flex;
     flex-direction: row;
@@ -22,6 +23,7 @@ body{
 
 #canvas{
     margin: 0;
+    margin-top: 10px;
 }
 
 nav{

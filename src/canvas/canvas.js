@@ -1,8 +1,8 @@
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 
-let canvasHeight = window.innerHeight;
-let canvasWidth = window.innerWidth;
+let canvasHeight = window.innerHeight - 200;
+let canvasWidth = window.innerWidth - 200;
 
 let offsetX;
 let offsetY;
@@ -28,7 +28,16 @@ let currentShapeIndex = null;
 
 let shapes = [];
 
-function getCordinatesInCanvas(clickX, clickY, canvas) {
+window.onload = function(){ 
+    getAllShapes().then(data => setShapes(data)); 
+    drawShapes();
+}
+function setShapes(shapesState){
+    shapes = shapesState;
+    drawShapes();
+}
+
+function getCordinatesInCanvas(clickX, clickY) {
     return { x: clickX - offsetX, y: clickY - offsetY };
 }
 
@@ -42,7 +51,6 @@ function drawShapes() {
         context.strokeRect(shape.x, shape.y, shape.width, shape.height);
 
         context.fillStyle = "black";
-        console.log(shape)
         context.fillText(shape.text, shape.x + (shape.width / 2) - (shape.text.length / 2 * 5.5), shape.y + shape.height / 2);
     });
 }
