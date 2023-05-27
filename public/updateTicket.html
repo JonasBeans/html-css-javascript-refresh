@@ -2,24 +2,21 @@
 <head>
     <link rel="stylesheet" href="../style/style_sheet.css">
     <script src="../src/constants.js"></script>
-    <script src="../src/tickets/tickets.js"></script>
+    <script src="../src/tickets/updateTicket.js"></script>
 </head>
 <html>
 <header>
     <nav>
         <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="randomNumber.html">Random number</a></li>
-            <li><a href="canvas.html">Canvas</a></li>
-            <li><a href="ticket.html" class="active">Ticket </a></li>
+            <li><a href="ticket.html">GO BACK TO TICKET LIST</a></li>
         </ul>
     </nav>
-    <h1>Ticket melding</h1>
+    <h1>Updating ticket</h1>
 </header>
 
 <body>
     <div class="flexbox-horizontal">
-        <form action="javascript:createTicket()" class="flexbox-vertical" style="width:20rem">
+        <form action="javascript:updateTicket()" class="flexbox-vertical" style="width:20rem">
             <label for="first-name">First Name</label>
             <input type="text" name="firstName" id="first-name">
 
@@ -35,21 +32,5 @@
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
             <input type="submit" value="SEND"></a>
         </form>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">Reporter</th>
-                        <th>Status</th>
-                        <th>Beschrijving</th>
-                        <th>DELETE</th>
-                        <th>UPDATE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
     </div>
 </body>
-</html>

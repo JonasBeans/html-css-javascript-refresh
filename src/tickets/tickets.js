@@ -12,6 +12,7 @@ function setTickets(ticketFromResponse){
 async function createTicket(){
     let url = `http://${backendIP}/api/v1/ticket`;
     let formData = getTicketValuesFromForm();
+    let form = document.querySelector("form")
 
     console.log(JSON.stringify(formData));
 
@@ -23,8 +24,8 @@ async function createTicket(){
         body: JSON.stringify(formData)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
     .then(() => location.reload())
+    .then(() => form.reset())
 }
 
 async function getAllTickets(){
@@ -37,11 +38,10 @@ async function getAllTickets(){
 }
 
 function fillTable(){
-    tickets.forEach(element => {
-        console.log(element.id)
-        let table = document.querySelector("table tbody");
-        let fullTicket = createTicketForDOM(element);
-
+    let table = document.querySelector("table tbody");
+    tickets.forEach(ticket => {
+        console.log(ticket.id)
+        let fullTicket = createTicketForDOM(ticket);
         table.appendChild(fullTicket);
     });
 }
@@ -55,6 +55,8 @@ function createTicketForDOM(ticket) {
     fullTicket.appendChild(ticketFields.lastName);
     fullTicket.appendChild(ticketFields.status);
     fullTicket.appendChild(ticketFields.description);
+    fullTicket.appendChild(ticketFields.deleteButton);
+    fullTicket.appendChild(ticketFields.updateButton);
 
     return fullTicket;
 }
@@ -71,8 +73,50 @@ function makeTicketFields(ticket) {
 
     let description = document.createElement("td");
     description.innerHTML = ticket.description;
+    
+    let deleteButton = createDeleteButton(ticket.id);
 
-    return { firstName, lastName, status, description };
+    let updateButton = createUpdateButton(ticket.id);
+
+    return { firstName, lastName, status, description, deleteButton, updateButton };
+}
+
+function createDeleteButton(id){
+    let tableCel = document.createElement("td");
+    let getButton = document.createElement("input");
+
+    getButton.type = "button";
+    getButton.value = "delete"
+    getButton.addEventListener("click", deleteTicketById.bind(null,id))
+
+    tableCel.appendChild(getButton);
+    return tableCel
+}
+function createUpdateButton(id){
+    let tableCel = document.createElement("td");
+    let getButton = document.createElement("input");
+
+    getButton.type = "button";
+    getButton.value = "update"
+    getButton.addEventListener("click", updateTicketById.bind(null,id))
+
+    tableCel.appendChild(getButton);
+    return tableCel
+}
+
+function updateTicketById(id){
+    localStorage.setItem("ticketId", id);
+    window.location.href = `http://${backendIP}/public/updateTicket.html`;
+}
+
+async function deleteTicketById(id){
+    let url = `http://${backendIP}/api/v1/ticket/${id}`
+
+    await fetch(url, {
+        method: "DELETE"
+    })
+    .then(response => response.text())
+    .then(() => location.reload())
 }
 
 function getTicketValuesFromForm(){
