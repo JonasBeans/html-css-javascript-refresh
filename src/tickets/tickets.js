@@ -24,8 +24,7 @@ function createTicket(){
     })
     .then(response => data.json())
     .then(data => console.log(data))
-    
-
+    location.reload();
 }
 
 async function getAllTickets(){
