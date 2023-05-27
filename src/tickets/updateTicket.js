@@ -29,7 +29,7 @@ function fillForm(ticketInfo){
 function updateTicket(){
     let url = `http://${backendIP}/api/v1/ticket`;
     setTicketValuesFromForm();
-    console.log(JSON.stringify(ticketToUpdate));
+    let hostIP = location.host;
 
     fetch(url, {
         method:'PUT',
@@ -38,7 +38,7 @@ function updateTicket(){
         }, 
         body: JSON.stringify(ticketToUpdate)
     })
-    .then(() => window.location.href = `http://${backendIP}/public/ticket.html`)
+    .then(() => window.location.href = `http://${hostIP}/public/ticket.html`)
 }
 
 function setTicketValuesFromForm(){

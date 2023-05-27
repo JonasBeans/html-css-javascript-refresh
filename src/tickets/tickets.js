@@ -106,7 +106,8 @@ function createUpdateButton(id){
 
 function updateTicketById(id){
     localStorage.setItem("ticketId", id);
-    window.location.href = `http://${backendIP}/public/updateTicket.html`;
+    let hostIP = location.host;
+    window.location.href = `http://${hostIP}/public/updateTicket.html`;
 }
 
 async function deleteTicketById(id){
