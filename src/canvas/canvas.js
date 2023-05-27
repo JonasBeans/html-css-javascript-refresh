@@ -30,8 +30,8 @@ let shapes = [];
 
 window.onload = function(){ 
     getAllShapes().then(data => setShapes(data)); 
-    drawShapes();
 }
+
 function setShapes(shapesState){
     shapes = shapesState;
     drawShapes();

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="../style/style_sheet.css">
+    <script src="../src/constants.js"></script>
+    <script src="../src/tickets/tickets.js"></script>
+</head>
+<html>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="randomNumber.html">Random number</a></li>
+            <li><a href="canvas.html">Canvas</a></li>
+            <li><a href="ticket.html" class="active">Ticket </a></li>
+        </ul>
+    </nav>
+    <h1>Ticket melding</h1>
+</header>
+
+<body>
+    <div class="flexbox-horizontal">
+        <form action="javascript:createTicket()" class="flexbox-vertical" style="width:20rem">
+            <label for="first-name">First Name</label>
+            <input type="text" name="firstName" id="first-name">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="last-name">
+
+            <select name="status" id="status">
+                <option value="open" >OPEN</option>
+                <option value="solved">SOLVED</option>
+                <option value="busy">PENDING</option>
+                <option value="busy">BUSY</option>
+            </select>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <input type="submit" value="SEND"></a>
+        </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Reporter</th>
+                        <th>Status</th>
+                        <th>Beschrijving</th>
+                        <th>DELETE</th>
+                        <th>UPDATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>example</td>
+                        <td>example</td>
+                        <td>
+                            <select name="status" id="status">
+                                <option value="open">OPEN</option>
+                                <option value="solved">SOLVED</option>
+                                <option value="busy">PENDING</option>
+                                <option value="busy">BUSY</option>
+                            </select>
+                        </td>
+                        <td>example</td>
+                        <td><input type="button" value="delete"></td>
+                        <td><input type="button" value="update"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
