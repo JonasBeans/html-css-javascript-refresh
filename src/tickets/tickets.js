@@ -9,22 +9,22 @@ function setTickets(ticketFromResponse){
     fillTable(); 
 }
 
-function createTicket(){
+async function createTicket(){
     let url = `http://${backendIP}/api/v1/ticket`;
     let formData = getTicketValuesFromForm();
 
     console.log(JSON.stringify(formData));
 
-    fetch(url, {
+    await fetch(url, {
         method:'POST',
         headers: {
            "Content-Type" : "application/json",
         }, 
         body: JSON.stringify(formData)
     })
-    .then(response => data.json())
+    .then(response => response.json())
     .then(data => console.log(data))
-    location.reload();
+    .then(() => location.reload())
 }
 
 async function getAllTickets(){
@@ -64,7 +64,7 @@ function makeTicketFields(ticket) {
     firstName.innerHTML = ticket.firstName;
 
     let lastName = document.createElement("td");
-    lastName.innerHTML = ticket.firstName;
+    lastName.innerHTML = ticket.lastName;
 
     let status = document.createElement("td");
     status.innerHTML = ticket.status;
