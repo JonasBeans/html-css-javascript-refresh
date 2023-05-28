@@ -112,6 +112,9 @@ function updateTicketById(id){
 
 async function deleteTicketById(id){
     let url = `http://${backendIP}/api/v1/ticket/${id}`
+    if(!confirm("Je staat op het punt een ticket te verwijderen.")){
+        return
+    }
 
     await fetch(url, {
         method: "DELETE"

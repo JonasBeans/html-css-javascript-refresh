@@ -26,19 +26,28 @@ function fillForm(ticketInfo){
     ticketToUpdate = new Ticket(ticketId, firstName, lastName, status, description);
 }
 
-function updateTicket(){
+async function updateTicket(){
     let url = `http://${backendIP}/api/v1/ticket`;
     setTicketValuesFromForm();
     let hostIP = location.host;
 
-    fetch(url, {
-        method:'PUT',
-        headers: {
-           "Content-Type" : "application/json",
-        }, 
-        body: JSON.stringify(ticketToUpdate)
+    try{
+        response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ticketToUpdate)
     })
-    .then(() => window.location.href = `http://${hostIP}/public/ticket.html`)
+    } catch(e){
+        alert(e.message)
+    }
+    if(response.ok){
+        alert("Updated ticket succesfully");
+        window.location.href = `http://${hostIP}/public/ticket.html`;
+    } else {
+        alert(reponse.json())
+    }
 }
 
 function setTicketValuesFromForm(){
